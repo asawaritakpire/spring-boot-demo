@@ -2,6 +2,7 @@ package com.springboot.demo.demoapp.rest;
 
 import com.springboot.demo.demoapp.common.Coach;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,18 +15,21 @@ public class DemoRestController {
     private String authorName;
 
     private Coach myCoach;
-    /*  Constructor Injection
+      //Constructor Injection
 
     @Autowired
-    public DemoRestController(Coach coach){
-        myCoach = coach;
-    }*/
-
-    @Autowired
-    public void setCoach(Coach coach)
-    {
+    public DemoRestController(@Qualifier("cricketCoach") Coach coach){
+        System.out.println("Initialized "+ getClass().getSimpleName());
         myCoach = coach;
     }
+
+
+
+   /* @Autowired
+    public void setCoach(@Qualifier("cricketCoach") Coach coach)
+    {
+        myCoach = coach;
+    }*/
 
     @GetMapping("/")
     public String getMethoddemo()
