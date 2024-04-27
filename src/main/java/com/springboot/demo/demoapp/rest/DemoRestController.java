@@ -19,7 +19,7 @@ public class DemoRestController {
       //Constructor Injection
 
     @Autowired
-    public DemoRestController(@Qualifier("cricketCoach") Coach coach){
+    public DemoRestController(@Qualifier("swimCoach") Coach coach){
         System.out.println("Initialized "+ getClass().getSimpleName());
         myCoach = coach;
         //anotherCoach = coach1;
