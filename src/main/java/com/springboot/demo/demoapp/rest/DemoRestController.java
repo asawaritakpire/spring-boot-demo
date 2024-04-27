@@ -15,12 +15,14 @@ public class DemoRestController {
     private String authorName;
 
     private Coach myCoach;
+    //private Coach anotherCoach;
       //Constructor Injection
 
     @Autowired
     public DemoRestController(@Qualifier("cricketCoach") Coach coach){
         System.out.println("Initialized "+ getClass().getSimpleName());
         myCoach = coach;
+        //anotherCoach = coach1;
     }
 
 
@@ -48,4 +50,10 @@ public class DemoRestController {
     {
         return myCoach.getDailyWorkout();
     }
+
+    /*@GetMapping("/check")
+    public String check()
+    {
+        return  "Comparing beans: myCoach == anotherCoach : "+ (myCoach == anotherCoach);
+    }*/
 }
