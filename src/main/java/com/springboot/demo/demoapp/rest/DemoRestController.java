@@ -15,14 +15,13 @@ public class DemoRestController {
     private String authorName;
 
     private Coach myCoach;
-    //private Coach anotherCoach;
       //Constructor Injection
 
     @Autowired
     public DemoRestController(@Qualifier("swimCoach") Coach coach){
         System.out.println("Initialized "+ getClass().getSimpleName());
         myCoach = coach;
-        //anotherCoach = coach1;
+
     }
 
 
