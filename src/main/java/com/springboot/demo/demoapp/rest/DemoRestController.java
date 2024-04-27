@@ -15,8 +15,16 @@ public class DemoRestController {
     private String authorName;
 
     private Coach myCoach;
+    /*  Constructor Injection
+
     @Autowired
     public DemoRestController(Coach coach){
+        myCoach = coach;
+    }*/
+
+    @Autowired
+    public void setCoach(Coach coach)
+    {
         myCoach = coach;
     }
 
